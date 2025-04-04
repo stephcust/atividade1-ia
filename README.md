@@ -2,12 +2,12 @@
 
 ### Equipe A - Integrantes:
  - Alberth Lima
- - Ana Júlia
+ - Ana Júlia Pereira Corrêa
  - Daniel Gonzalez
  - Guilherme Maciel
  - Stepheson Custódio
 
-### 1. Explicar as regras heuristicas do Sudoku
+### 1. Explicar as regras heurísticas do Sudoku
   ---
   **1. Único Nú (Naked Single)**  
 
@@ -39,10 +39,11 @@
   \exists B, d, r \text{ tal que } (\forall C(r',c') \in B : d \in P(r',c')) \implies (r' = r) \land (\exists C \in B : d \in P(C)) \implies \forall c'' \text{ tal que } C(r, c'') \notin B : \neg B_{r,c'',d}.
   $$
 
-### 2. Resolver o sudoku considerado o mais dificil da atualidade, utilizando as heuristicas.
+### 2. Resolver o sudoku considerado o mais dificil da atualidade, utilizando as heurísticas.
 ![Hardest Sudoku](https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2018/09/720/405/Worlds-hardest-sudoku.jpg?ve=1&tl=1)
-#### 1. Indicar, em cada passo  que regras heuristicas foi ou foram utilizadas
 
-#### 2. Escolher que ultima heuristica foi usada para iniciar o Sudoku
+1. Indicar, em cada passo, que regras heurísticas foi ou foram utilizadas
 
-### 3. Gerar a representação em CNF do Sudoku
+2. Escolher que última heurística foi usada para iniciar o Sudoku
+
+3. Gerar a representação em CNF do Sudoku
