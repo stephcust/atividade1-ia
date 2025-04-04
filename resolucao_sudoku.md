@@ -207,7 +207,7 @@ sudoku_9x9 = [
 cnf_clauses = generate_cnf(sudoku_9x9)
 
 # Imprimir as cláusulas CNF
-for clause in cnf_clauses[:208]:  # Exibindo apenas as primeiras 50 cláusulas
+for clause in cnf_clauses[:208]:  # Exibindo apenas as primeiras 208 cláusulas
     print(clause)
 ```
 
