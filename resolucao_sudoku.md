@@ -57,7 +57,9 @@
 2. Escolher que última heurística foi usada para iniciar o Sudoku
     
 ---
-   **Resolução passo a passo**:  
+
+   **Resolução passo a passo**:
+   
    célula (2,5) &rarr; 2. Hidden Single (n5)  
    célula (5,6) &rarr; 2. Hidden Single (n3)  
    célula (7,8) &rarr; 15. Alternating Inference Chains (n1)  
