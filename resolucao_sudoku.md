@@ -123,6 +123,8 @@
   
   ![Sudoku Resolvido](https://github.com/user-attachments/assets/a8d4b7fc-9675-42a8-a05a-a03ee0962e34)
 
+  Para iniciar a resolução do sudoku, a heurística utilizada foi a 2 **(Hidden Single)**, pois para o bloco 2, a única posição possível para alocar o número 5 era a célula (2, 5), já que a linha 1, e as colunas 4 e 6 já possuiam o número 5.
+
 
 ### 3. Gerar a representação em CNF do Sudoku
 
