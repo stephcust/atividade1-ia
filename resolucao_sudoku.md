@@ -6,6 +6,7 @@
  - Daniel Gonzalez
  - Guilherme Maciel
  - Stepheson Custódio
+ - Júlio Melo Campos
 
 ### 1. Explicar as regras heurísticas do Sudoku
   ---
