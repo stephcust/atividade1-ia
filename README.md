@@ -119,3 +119,86 @@
    
 
 ### 3. Gerar a representação em CNF do Sudoku
+
+```bash
+def generate_cnf(sudoku, size=9):
+    """
+    Gera a representação CNF para um Sudoku dado, considerando a configuração e regras de unicidade.
+    :param sudoku: Uma matriz 2D (lista de listas) representando o Sudoku, com números ou zeros (vazio).
+    :param size: Tamanho do Sudoku (padrão 9x9).
+    :return: Lista de cláusulas CNF.
+    """
+    cnf_clauses = []
+    
+    # Função auxiliar para garantir que cada célula tenha exatamente um número entre 1 e 'size'
+    def add_cell_constraint(r, c):
+        # Para uma célula (r, c), ela pode ter qualquer número entre 1 e 'size'
+        clause = [f"x_{r}_{c}_{n}" for n in range(1, size + 1)]
+        cnf_clauses.append(clause)  # A célula deve ter um número de 1 a 'size'
+        
+        # Exclusões para garantir que apenas um número seja colocado na célula
+        for n1 in range(1, size + 1):
+            for n2 in range(n1 + 1, size + 1):
+                cnf_clauses.append([f"-x_{r}_{c}_{n1}", f"-x_{r}_{c}_{n2}"])
+    
+    # Função auxiliar para garantir a unicidade dos números por linha, coluna e bloco
+    def add_unique_constraints():
+        # Unicidade nas linhas, colunas e blocos
+        for r in range(1, size + 1):
+            for n in range(1, size + 1):
+                # Linha
+                for c1 in range(1, size + 1):
+                    for c2 in range(c1 + 1, size + 1):
+                        cnf_clauses.append([f"-x_{r}_{c1}_{n}", f"-x_{r}_{c2}_{n}"])
+                
+                # Coluna
+                for c1 in range(1, size + 1):
+                    for c2 in range(c1 + 1, size + 1):
+                        cnf_clauses.append([f"-x_{c1}_{r}_{n}", f"-x_{c2}_{r}_{n}"])
+                
+                # Bloco (3x3)
+                block_r = (r - 1) // 3 * 3 + 1
+                block_c = (r - 1) % 3 * 3 + 1
+                for dr in range(0, 3):
+                    for dc in range(0, 3):
+                        for dr2 in range(dr + 1, 3):
+                            for dc2 in range(dc + 1, 3):
+                                cnf_clauses.append([f"-x_{block_r + dr}_{block_c + dc}_{n}", f"-x_{block_r + dr2}_{block_c + dc2}_{n}"])
+
+    # Função para adicionar restrições para células já preenchidas
+    def add_initial_values():
+        for r in range(1, size + 1):
+            for c in range(1, size + 1):
+                if sudoku[r-1][c-1] != 0:  # Se a célula não está vazia
+                    n = sudoku[r-1][c-1]
+                    cnf_clauses.append([f"x_{r}_{c}_{n}"])
+                    # Elimina outros números para essa célula
+                    for num in range(1, size + 1):
+                        if num != n:
+                            cnf_clauses.append([f"-x_{r}_{c}_{num}"])
+    
+    # Gerar as cláusulas CNF
+    add_initial_values()
+    add_unique_constraints()
+    
+    return cnf_clauses
+
+# Exemplo de uso com um Sudoku 9x9:
+sudoku_9x9 = [
+    [0, 0, 5, 3, 0, 0, 0, 0, 0],
+    [8, 0, 0, 0, 0, 0, 0, 2, 0],
+    [0, 7, 0, 0, 1, 0, 5, 0, 0],
+    [4, 0, 0, 0, 0, 5, 3, 0, 0],
+    [0, 1, 0, 0, 7, 0, 0, 0, 6],
+    [0, 0, 3, 2, 0, 0, 0, 8, 0],
+    [0, 6, 0, 5, 0, 0, 0, 0, 9],
+    [0, 0, 4, 0, 0, 0, 0, 3, 0],
+    [0, 0, 0, 0, 0, 0, 9, 7, 0]
+]
+
+cnf_clauses = generate_cnf(sudoku_9x9)
+
+# Imprimir as cláusulas CNF
+for clause in cnf_clauses[:208]:  # Exibindo apenas as primeiras 50 cláusulas
+    print(clause)
+```
