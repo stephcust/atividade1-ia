@@ -45,5 +45,8 @@
 1. Indicar, em cada passo, que regras heurísticas foi ou foram utilizadas
 
 2. Escolher que última heurística foi usada para iniciar o Sudoku
+   ---
+   **Resolução passo a passo:
+   
 
-3. Gerar a representação em CNF do Sudoku
+### 3. Gerar a representação em CNF do Sudoku
