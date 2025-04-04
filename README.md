@@ -8,32 +8,41 @@
  - Stepheson Custódio
 
 ### 1. Explicar as regras heuristicas do Sudoku
-  1. Cada célula contém exatamente um número: Para cada célula  C(r,c):
-     
-   $$
-   \bigvee_{k=1}^{9} B_{r,c,k} \quad \text{(Pelo menos um número na célula)}
-   $$
+  ---
+  **1. Único Nú (Naked Single)**  
 
-   $$
-   \neg (B_{r,c,k_1} \land B_{r,c,k_2}) \quad \forall k_1 \neq k_2 \quad \text{(Sem dois números na mesma célula).}
-   $$
-
-
-  2. Cada número aparece exatamente uma vez por linha
-
-  $$
-  \forall U, \forall d: \left| \{ C \in U \mid d \in P(C) \} \right| = 1 \implies B_{r,c,d},
-  $$ 
+  Se ***|P(r, c)| = 1***, atribua o único candidato a ***S[r, c]***:  
   
-  onde \(C(r, c)\) é a célula única em \(U\) onde \( d $$\in$$ P(r, c)\).
-
-  3. ach number appears exactly once per column: For each column  Cc  and number  k :
+  $$
+  \exists C(r,c), d \text{ tal que } P(r, c) = \{d\} \implies B_{r,c,d}.
+  $$
+  
+  ---
+  
+  **2. Único Oculto (Hidden Single)**  
+  
+  Se um dígito ***d*** aparecer como candidato em apenas uma célula dentro de uma unidade ***U***:  
+  
+  $$
+  \forall U, \forall d : |\{ C \in U \mid d \in P(C) \}| = 1 \implies B_{r,c,d},
+  $$  
+  
+  onde ***C(r, c)*** é a única célula em ***U*** onde $$\( d \in P(r, c) \)$$.
+  
+  ---
+  
+  **3. Candidatos Bloqueados Tipo 1 (Apontando) (Locked Candidates Type 1 - Pointing)**  
+  
+  Se todos os candidatos para ***d***em um bloco ***B*** estiverem confinados a uma única linha $$\ R_r \$$ (ou coluna $$\ C_c \$$):  
+  
+  $$
+  \exists B, d, r \text{ tal que } (\forall C(r',c') \in B : d \in P(r',c')) \implies (r' = r) \land (\exists C \in B : d \in P(C)) \implies \forall c'' \text{ tal que } C(r, c'') \notin B : \neg B_{r,c'',d}.
+  $$
 
 ### 2. Resolver o sudoku considerado o mais dificil da atualidade, utilizando as heuristicas.
 ![Hardest Sudoku](https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2018/09/720/405/Worlds-hardest-sudoku.jpg?ve=1&tl=1)
+#### 1. Indicar, em cada passo  que regras heuristicas foi ou foram utilizadas
 
-1. Indicar, em cada passo, que regras heurísticas foi ou foram utilizadas
+#### 2. Escolher que ultima heuristica foi usada para iniciar o Sudoku
 
-2. Escolher que última heurística foi usada para iniciar o Sudoku
-
-3. Gerar a representação em CNF do Sudoku
+### 3. Gerar a representação em CNF do Sudoku
