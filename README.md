@@ -116,7 +116,10 @@
    célula (7,7) &rarr; 2. Hidden Single (n8)  
    célula (8,5) &rarr; 2. Hidden Single (n6)  
    célula (8,7) &rarr; 2. Hidden Single (n2)  
-   
+
+  **Sudoku Resolvido**:  
+  ![Sudoku Resolvido](https://github.com/user-attachments/assets/a8d4b7fc-9675-42a8-a05a-a03ee0962e34)
+
 
 ### 3. Gerar a representação em CNF do Sudoku
 
