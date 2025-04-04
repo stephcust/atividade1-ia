@@ -51,11 +51,70 @@
 ### 2. Resolver o sudoku considerado o mais dificil da atualidade, utilizando as heurísticas.
 ![Hardest Sudoku](https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2018/09/720/405/Worlds-hardest-sudoku.jpg?ve=1&tl=1)
 
-1. Indicar, em cada passo, que regras heurísticas foi ou foram utilizadas
-
-2. Escolher que última heurística foi usada para iniciar o Sudoku
-   ---
-   **Resolução passo a passo:
+ 1. Indicar, em cada passo, que regras heurísticas foi ou foram utilizadas
+ 
+ 2. Escolher que última heurística foi usada para iniciar o Sudoku
+    
+---
+   **Resolução passo a passo**:  
+   célula (2,5) &rarr; 2. Hidden Single (n5)  
+   célula (5,6) &rarr; 2. Hidden Single (n3)  
+   célula (7,8) &rarr; 15. Alternating Inference Chains (n1)  
+   célula (4,8) &rarr; 16. Forcing Chains (n7)  
+   célula (4,3) &rarr; 1. Naked Single (n6)  
+   célula (7,3) &rarr; 2. Hidden Single (n7)  
+   célula (4,8) &rarr; 16. Forcing Chains (n7)  
+   célula (1,2) &rarr; 16. Forcing Chains (n4)  
+   célula (2,2) &rarr; 2. Hidden Single (n3)  
+   célula (3,9) &rarr; 2. Hidden Single (n3)  
+   célula (7,1) &rarr; 16. Forcing Chains (n3)  
+   célula (9,5) &rarr; 2. Hidden Single (n3)  
+   célula (4,9) &rarr; 16. Forcing Chains (n2)  
+   célula (4,4) &rarr; 2. Hidden Single (n1)  
+   célula (8,6) &rarr; 2. Hidden Single (n1)  
+   célula (8,4) &rarr; 2. Hidden Single (n7)  
+   célula (9,2) &rarr; 2. Hidden Single (n2)  
+   célula (6,6) &rarr; 7. Naked Subset e 16. Forcing Chains (n6)  
+   célula (4,2) &rarr; 2. Hidden Single (n9)  
+   célula (4,5) &rarr; 2. Hidden Single (n8)  
+   célula (6,2) &rarr; 2. Hidden Single (n5)  
+   célula (8,2) &rarr; 2. Hidden Single (n8)  
+   célula (5,1) &rarr; 2. Hidden Single (n2)  
+   célula (5,3) &rarr; 2. Hidden Single (n8)  
+   célula (9,3) &rarr; 2. Hidden Single (n1)  
+   célula (2,3) &rarr; 2. Hidden Single (n9)  
+   célula (3,3) &rarr; 2. Hidden Single (n2)  
+   célula (3,1) &rarr; 2. Hidden Single (n6)  
+   célula (1,1) &rarr; 2. Hidden Single (n1)  
+   célula (9,1) &rarr; 2. Hidden Single (n5)  
+   célula (8,1) &rarr; 2. Hidden Single (n9)  
+   célula (8,9) &rarr; 2. Hidden Single (n5)  
+   célula (5,8) &rarr; 2. Hidden Single (n5)  
+   célula (2,4) &rarr; 3. Locked Candidates, 16. Forcing Chains e 2. Hidden Single (n6)  
+   célula (9,8) &rarr; 2. Hidden Single (n6)  
+   célula (1,8) &rarr; 2. Hidden Single (n9)  
+   célula (3,8) &rarr; 2. Hidden Single (n4)  
+   célula (3,6) &rarr; 2. Hidden Single (n8)  
+   célula (3,4) &rarr; 2. Hidden Single (n9)  
+   célula (5,4) &rarr; 2. Hidden Single (n4)  
+   célula (5,7) &rarr; 2. Hidden Single (n9)  
+   célula (6,5) &rarr; 2. Hidden Single (n9)  
+   célula (9,4) &rarr; 2. Hidden Single (n8)  
+   célula (9,9) &rarr; 2. Hidden Single (n4)  
+   célula (6,9) &rarr; 2. Hidden Single (n1)  
+   célula (6,7) &rarr; 2. Hidden Single (n4)  
+   célula (2,9) &rarr; 2. Hidden Single (n7)  
+   célula (1,9) &rarr; 2. Hidden Single (n8)  
+   célula (1,7) &rarr; 2. Hidden Single (n6)  
+   célula (2,7) &rarr; 2. Hidden Single (n1)  
+   célula (2,6) &rarr; 2. Hidden Single (n4)  
+   célula (1,5) &rarr; 2. Hidden Single (n2)  
+   célula (1,6) &rarr; 2. Hidden Single (n7)  
+   célula (7,6) &rarr; 2. Hidden Single (n2)  
+   célula (7,5) &rarr; 2. Hidden Single (n4)  
+   célula (7,7) &rarr; 2. Hidden Single (n8)  
+   célula (8,5) &rarr; 2. Hidden Single (n6)  
+   célula (8,7) &rarr; 2. Hidden Single (n2)  
    
 
 ### 3. Gerar a representação em CNF do Sudoku
